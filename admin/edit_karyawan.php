@@ -22,17 +22,16 @@ $password = $hasil['password'];
 
 // proses edit
 if(isset($_POST['edit'])){
-$id_karyawan1 = $_POST['id_karyawan1'];
+$id_karyawan2 = $_POST['id_karyawan1'];
 $nama_karyawan1 = $_POST['nama_karyawan1'];
 $alamat1 = $_POST['alamat1'];
 $jenis_kelamin1 = $_POST['jenis_kelamin1'];
 $kd_bagian1 = $_POST['kd_bagian1'];
-$nama_bagian1 = $_POST['nama_bagian1'];
 $username1 = $_POST['username1'];
 $password1 = $_POST['password1'];
 
 // update data
-$query = "UPDATE `karyawan` SET `id_karyawan` = '$id_karyawan1' , `nama_karyawan` = '$nama_karyawan1' , `alamat` = '$alamat1' , `jenis_kelamin` = '$jenis_kelamin1' , `kd_bagian` = 'kd_bagian1' , `username` = 'username1' , `password` = 'password1' WHERE `id_karyawan` = 'id_karyawan1';";
+$query = "UPDATE `karyawan` SET `nama_karyawan` = '$nama_karyawan1' , `alamat` = '$alamat1' , `jenis_kelamin` = '$jenis_kelamin1' , `username` = '$username1' , `password` = '$password1' WHERE `id_karyawan` = '$id_karyawan';";
 $sql = mysql_query($query);
 if ($sql) {
 	echo "<meta http-equiv='refresh' content='0; url=index.php?page=karyawan'>";
@@ -44,7 +43,7 @@ if ($sql) {
  <br>
   <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
+                    <div class="panel fresh-color panel-info">
                         <div class="panel-heading">
                             Karyawan
                         </div>
@@ -93,14 +92,6 @@ if ($sql) {
                         </label>
                       </div>
                     </div>
-
-                    <!-- <div class="form-group">
-                        <label for="contact-name" class="col-lg-3 control-label"> Kode Bagian : </label>
-                        <div class="col-lg-6">
-                            <input type="text" class="form-control" id="contract-name" name="$kd_bangian1" value="<?php echo $kd_bagian?>">
-                        </div>
-                    </div>
- -->
                     
 
                      <div class="form-group">
@@ -111,7 +102,7 @@ if ($sql) {
                                 $query1 = "SELECT `kd_bagian` FROM `bagian_kerja`;";
                                 $sql1 = mysql_query($query1);
                                 while ( $baris = mysql_fetch_array($sql1)) {
-                                    echo '<option value="'.$baris['kd_bagian'].'">'.$baris['kd_bagian'].'</option>';
+                                    echo '<option>'.$baris['kd_bagian'].'</option>';
                                 }
                                 
                                  ?>
@@ -128,12 +119,12 @@ if ($sql) {
                     <div class="form-group">
                         <label for="contact-name" class="col-lg-3 control-label"> Password : </label>
                         <div class="col-lg-6">
-                            <input type="password" class="form-control" id="contract-name" name="username1" value="<?php echo $username; ?>">
+                            <input type="password" class="form-control" id="contract-name" name="password1" value="<?php echo $password; ?>">
                         </div>
                     </div>  
                     <div class="form-action no-margin-bottom" style="margin-left:40%">
-                    <a href="index.php?page=karyawan" class="btn btn-primary">Keluar</a>
                     <input class="btn btn-primary" type="submit" name="edit" id="edit" value="Edit">
+                    <a href="index.php?page=karyawan" class="btn btn-primary">Keluar</a>
                     </div>
                 </form>
                         </div>

@@ -119,84 +119,55 @@
                         </div>
                         <ul class="nav navbar-nav">
                             <li class="active">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <span class="icon fa fa-tachometer"></span><span class="title">Dashboard</span>
                                 </a>
                             </li>
-                            <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-element">
-                                    <span class="icon fa fa-desktop"></span><span class="title">UI Kits</span>
-                                </a>
-                                <!-- Dropdown level 1 -->
-                                <div id="dropdown-element" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="ui-kits/theming.html">Theming</a>
-                                            </li>
-                                            <li><a href="ui-kits/grid.html">Grid</a>
-                                            </li>
-                                            <li><a href="ui-kits/button.html">Buttons</a>
-                                            </li>
-                                            <li><a href="ui-kits/card.html">Cards</a>
-                                            </li>
-                                            <li><a href="ui-kits/list.html">Lists</a>
-                                            </li>
-                                            <li><a href="ui-kits/modal.html">Modals</a>
-                                            </li>
-                                            <li><a href="ui-kits/alert.html">Alerts & Toasts</a>
-                                            </li>
-                                            <li><a href="ui-kits/panel.html">Panels</a>
-                                            </li>
-                                            <li><a href="ui-kits/loader.html">Loaders</a>
-                                            </li>
-                                            <li><a href="ui-kits/step.html">Tabs & Steps</a>
-                                            </li>
-                                            <li><a href="ui-kits/other.html">Other</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
+                        
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-table">
-                                    <span class="icon fa fa-users"></span><span class="title">Karyawan</span>
+                                    <span class="icon fa fa-users"></span><span class="title">Admin</span>
                                 </a>
+
                                 <!-- Dropdown level 1 -->
                                 <div id="dropdown-table" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="table.html"><span class="icon fa fa-user-plus"></span>Tambah Karyawan</a>
+                                            <li><a href="index.php?page=bagian_kerja"><span class="icon fa fa-user-plus"></span>Pengolahan Bagian Kerja</a>
                                             </li>
-                                            <li><a href="index.php?page=karyawan"><span class="icon fa fa-list"></span>List Karyawan</a>
+                                            <li><a href="index.php?page=karyawan"><span class="icon fa fa-list"></span>Pengolahan Data Karyawan</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
+
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-form">
-                                    <span class="icon fa fa-file-text-o"></span><span class="title">Form</span>
+                                    <span class="icon fa fa-file-text-o"></span><span class="title">Pelayan</span>
                                 </a>
+                                
                                 <!-- Dropdown level 1 -->
                                 <div id="dropdown-form" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="form/ui-kits.html">Form UI Kits</a>
+                                            <li><a href="index.php?page=pengolahan_meja">Pengolahan Data Meja</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
+
                             <!-- Dropdown-->
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#component-example">
-                                    <span class="icon fa fa-cubes"></span><span class="title">Components</span>
+                                    <span class="icon fa fa-cubes"></span><span class="title">Koki</span>
                                 </a>
                                 <!-- Dropdown level 1 -->
                                 <div id="component-example" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="components/pricing-table.html">Pricing Table</a>
+                                            <li><a href="index.php?page=pengolahan_menu">Pengolahan Data Menu</a>
                                             </li>
                                             <li><a href="components/chartjs.html">Chart.JS</a>
                                             </li>
@@ -257,6 +228,12 @@
                         switch ($page) {
                             case 'karyawan': include "karyawan.php"; break;
                             case 'edit_karyawan': include "edit_karyawan.php"; break;
+                            case 'bagian_kerja': include "bagian_kerja.php"; break;
+                            case 'edit_bagian_kerja': include "edit_bagian_kerja.php"; break;
+                            case 'pengolahan_meja': include "pengolahan_meja.php"; break;
+                            case 'edit_meja': include "edit_meja.php"; break;
+                            case 'pengolahan_menu': include "pengolahan_menu.php"; break;
+                            case 'edit_menu': include "edit_menu.php"; break;
                             case 'main':
                             default: include 'utama.php';
                         }

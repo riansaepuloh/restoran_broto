@@ -104,6 +104,7 @@ JOIN `bagian_kerja` ON `karyawan`.`kd_bagian` = `bagian_kerja`.`kd_bagian`;");
                                                                     }
                                                                     
                                                                      ?>
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -117,9 +118,9 @@ JOIN `bagian_kerja` ON `karyawan`.`kd_bagian` = `bagian_kerja`.`kd_bagian`;");
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="contact-name" class="col-lg-3 control-label"> Username : </label>
+                                                            <label for="contact-name" class="col-lg-3 control-label"> Password : </label>
                                                             <div class="col-lg-9">
-                                                                <input type="password" class="form-control" id="contract-name" placeholder="Masukan Username" name="password">
+                                                                <input type="password" class="form-control" id="contract-name" placeholder="Masukan Password" name="password">
                                                             </div>
                                                         </div>
 
@@ -170,7 +171,7 @@ JOIN `bagian_kerja` ON `karyawan`.`kd_bagian` = `bagian_kerja`.`kd_bagian`;");
                                                 <td><?php echo $kolom['password']?></td>
                                                 <td>
 
-                                                    <a href="index.php?page=edit_karyawan&id=<?php echo $kolom['id_karyawan']; ?>"><button type="button" class="btn btn-success">Ubah</button></a>
+                                                    <a href="index.php?page=edit_karyawan&id=<?php echo $kolom['id_karyawan']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></a>
                                                     <a href="hapus_karyawan.php?page=hapus_karyawan&id=<?php echo $kolom['id_karyawan'];?>"onclick="return confirm('apakah yakin menghapus data ?')" ><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
                                                 </td>
                                             </tr>
