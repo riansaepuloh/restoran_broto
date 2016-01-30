@@ -1,3 +1,11 @@
+<?php 
+    session_start();
+    if(empty($_SESSION['akses']==1)){
+        echo "<meta http-equiv='refresh' content='0; url=index.php'>";
+    } else {
+        include('koneksi.php');
+ ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -85,18 +93,18 @@
                             </ul>
                         </li>
                         <li class="dropdown profile">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Emily Hart <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo "$_SESSION[user]"; ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu animated fadeInDown">
                                 <li class="profile-img">
                                     <img src="../img/profile/picjumbo.com_HNCK4153_resize.jpg" class="profile-img">
                                 </li>
                                 <li>
                                     <div class="profile-info">
-                                        <h4 class="username">Emily Hart</h4>
-                                        <p>emily_hart@email.com</p>
+                                        <h4 class="username"><?php echo "$_SESSION[user]"; ?></h4>
+                                        <p></p>
                                         <div class="btn-group margin-bottom-2x" role="group">
                                             <button type="button" class="btn btn-default"><i class="fa fa-user"></i> Profile</button>
-                                            <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i> Logout</button>
+                                            <a href="logout.php"> <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i> Logout</button></a>
                                         </div>
                                     </div>
                                 </li>
@@ -169,7 +177,7 @@
                                         <ul class="nav navbar-nav">
                                             <li><a href="index.php?page=pengolahan_menu">Pengolahan Data Menu</a>
                                             </li>
-                                            <li><a href="components/chartjs.html">Chart.JS</a>
+                                            <li><a href="index.php?page=pengolahan_resep">Pengolahan Resep</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -178,15 +186,13 @@
                             <!-- Dropdown-->
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-example">
-                                    <span class="icon fa fa-slack"></span><span class="title">Page Example</span>
+                                    <span class="icon fa fa-slack"></span><span class="title">Pantry</span>
                                 </a>
                                 <!-- Dropdown level 1 -->
                                 <div id="dropdown-example" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="pages/login.html">Login</a>
-                                            </li>
-                                            <li><a href="pages/index.html">Landing Page</a>
+                                            <li><a href="index.php?page=pengolahan_bahan">Bahan Baku</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -226,14 +232,18 @@
                         <?php 
                         $page = (isset($_GET['page']))? $_GET['page'] : "main";
                         switch ($page) {
-                            case 'karyawan': include "karyawan.php"; break;
-                            case 'edit_karyawan': include "edit_karyawan.php"; break;
-                            case 'bagian_kerja': include "bagian_kerja.php"; break;
-                            case 'edit_bagian_kerja': include "edit_bagian_kerja.php"; break;
-                            case 'pengolahan_meja': include "pengolahan_meja.php"; break;
-                            case 'edit_meja': include "edit_meja.php"; break;
-                            case 'pengolahan_menu': include "pengolahan_menu.php"; break;
-                            case 'edit_menu': include "edit_menu.php"; break;
+                            case 'karyawan': include "karyawan/karyawan.php"; break;
+                            case 'edit_karyawan': include "karyawan/edit_karyawan.php"; break;
+                            case 'bagian_kerja': include "bagian/bagian_kerja.php"; break;
+                            case 'edit_bagian_kerja': include "bagian/edit_bagian_kerja.php"; break;
+                            case 'pengolahan_meja': include "pengolahan_meja/pengolahan_meja.php"; break;
+                            case 'edit_meja': include "pengolahan_meja/edit_meja.php"; break;
+                            case 'pengolahan_menu': include "pengolahan_menu/pengolahan_menu.php"; break;
+                            case 'edit_menu': include "pengolahan_menu/edit_menu.php"; break;
+                            case 'pengolahan_resep': include "pengolahan_resep.php"; break;
+                            case 'edit_resep': include "edit_resep.php"; break;
+                            case 'pengolahan_bahan': include "pengolahan_bahan/pengolahan_bahan.php"; break;
+                            case 'edit_bahan': include "pengolahan_bahan/edit_resep.php"; break;
                             case 'main':
                             default: include 'utama.php';
                         }
@@ -267,3 +277,6 @@
 </body>
 
 </html>
+<?php
+}
+?>

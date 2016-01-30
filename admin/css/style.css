@@ -57,7 +57,7 @@ a:hover {
   text-indent: 1em; }
 
 .navbar {
-  z-index: 10001;
+  z-index: 100;
   padding-left: 60px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s; }
@@ -513,7 +513,8 @@ a:hover {
   display: block; }
 
 .modal {
-  z-index: 100001; }
+  z-index: 200; 
+  ;}
   .modal .modal-dialog .modal-header {
     font-family: 'Roboto Condensed', sans-serif; }
   .modal .modal-dialog .modal-content {
@@ -524,7 +525,7 @@ a:hover {
     margin-bottom: 0; }
 
 .modal-backdrop {
-  z-index: 100000; }
+  z-index: 100; }
 
 .modal-backdrop.in {
   opacity: 0.8; }
