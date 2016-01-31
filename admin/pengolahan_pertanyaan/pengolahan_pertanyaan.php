@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Flat Admin V.2 - Free Bootstrap Admin Templates</title>
+    <title>Pengolahan Pertanyaan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
@@ -13,8 +13,8 @@
 <body class="flat-blue">
 
              <?php 
-                include"koneksi.php";
-                $hasil=mysql_query("SELECT `kd_resep`,`nama_menu` FROM `resep` JOIN `menu` USING(`kd_menu`);");
+                include "koneksi.php";
+                $hasil=mysql_query("SELECT * FROM `kuisioner`;");
              ?>
 
             <!-- Main Content -->
@@ -27,22 +27,23 @@
                         <div class="panel-heading">
 
                                     <div class="panel-title">
-                                    <div class="title">Resep</div>
+                                    <div class="title">Pertanyaan</div>
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <!-- Modal -->
+
+                                     <!-- Modal -->
                                         <div class="modal fade modal-success" id="daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
                                         <?php
-                                        $query=mysql_query("select max(kd_resep) as kd_resep from resep");
+                                        $query=mysql_query("SELECT MAX(kd_pertanyaan) AS kd_pertanyaan FROM kuisioner");
                                         $hasil_id=mysql_fetch_array($query);
-                                        $id_baru=substr($hasil_id['kd_resep'],1,4);
+                                        $id_baru=substr($hasil_id['kd_pertanyaan'],2,4);
                                         $tambah=$id_baru+1;
                                         if($tambah<10) {
-                                          $id="R00".$tambah;
+                                          $id="PT00".$tambah;
                                         } else {
-                                          $id="R0".$tambah;
+                                          $id="PT0".$tambah;
                                         }
                                         ?>
 
@@ -51,49 +52,51 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title" id="myModalLabel">Tambah Resep</h4>
+                                                        <h4 class="modal-title" id="myModalLabel">Tambah Pertanyaan</h4>
                                                     </div>
-                                                    <form class="form-horizontal" action="pengolahan_resep/simpan_resep.php" method="post" enctype="multipart/form-data" name="FormUpload" id="FormUpload">
+                                                    <form class="form-horizontal" action="pengolahan_pertanyaan/simpan_pertanyaan.php" method="post">
                                                     <div class="modal-body">
                                                          <div class="form-group">
-                                                            <label for="contact-name" class="col-lg-3 control-label">Kode Resep : </label>
+                                                            <label for="contact-name" class="col-lg-3 control-label">Kode Pertanyaan : </label>
                                                             <div class="col-lg-9">
-                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan Kode Resep" name="kd_resep" value="<?php echo $id ?>">
+                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan Kode Meja" name="kd_pertanyaan" value="<?php echo $id ?>">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for = "contact-msg" class="col-lg-3 control-label">Nama Resep : </label>
+                                                            <label for = "contact-msg" class="col-lg-3 control-label">Pertanyaan : </label>
                                                             <div class="col-lg-9">
-                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan Nama Resep" name="nama_resep">
+                                                                <textarea class="form-control" rows="3" name="pertanyaan"></textarea>
                                                             </div>
-                                                        </div>                                            
-                                                      
+                                                        </div>
+
+                                                       
 
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" name="button" id="button" class="btn btn-success" onClick="window.close();"><span class="icon fa fa-user-plus"></span> Tambah Detail</button>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
+                                                        <button type="submit" class="btn btn-success" ><span class="icon fa fa-user-plus"></span> Tambah</button>
                                                     </div>
                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- end modal -->
+
 
                         <div class="clearfix margin-bottom-10">
                               <div class="btn-group">                               
                               <button a href="#daftar" data-toggle="modal" class="btn btn-success"><span class="icon fa fa-user-plus"></span>
-                              Tambah Resep
-                              <!-- <a href="index.php?page=tambah_menu"><span class="icon fa fa-user-plus"></span>Tambah Menu</a> -->
+                                 Tambah Pertanyaan
+                                 </button>
                               </div>
                               
                         </div>
                                     <table class="datatable table table-striped" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>Kode Resep</th>
-                                                <th>Nama Resep</th>
+                                                <th>Kode Pertanyaan</th>
+                                                <th>Pertanyaan</th>
+                                                <th>Status Meja</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -103,11 +106,12 @@
                                             while($kolom=mysql_fetch_array($hasil)){
                                             ?>
                                             <tr>
-                                                <td><?php echo $kolom['kd_resep']?></td>
-                                                <td><?php echo $kolom['nama_menu']?></td>
+                                                <td><?php echo $kolom['kd_pertanyaan']?></td>
+                                                <td><?php echo $kolom['pertanyaan']?></td>
+                                                <td><?php echo $kolom['total_point']?></td>
                                                 <td>
-                                                    <a href="index.php?page=edit_resep&id=<?php echo $kolom['kd_meja']; ?>"><button type="button" class="btn btn-success">Lihat</button></a>
-                                                    <a href="hapus_meja.php?page=hapus_meja&id=<?php echo $kolom['kd_meja'];?>"onclick="return confirm('apakah yakin menghapus data ?')" ><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
+                                                    <a href="index.php?page=edit_pertanyaan&id=<?php echo $kolom['kd_pertanyaan']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></button></a>
+                                                    <a href="pengolahan_pertanyaan/hapus_pertanyaan.php?page=hapus_pertanyaan&id=<?php echo $kolom['kd_pertanyaan'];?>"onclick="return confirm('apakah yakin menghapus data ?')" ><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
                                                 </td>
                                             </tr>
                                             <?php 

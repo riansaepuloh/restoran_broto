@@ -1,18 +1,25 @@
 <?php 
-include "koneksi.php";
+include "../koneksi.php";
 
-$kd_meja = isset($_POST['kd_meja']) ? $_POST['kd_meja']:"";
-$kapasitas = isset($_POST['kapasitas']) ? $_POST['kapasitas']:"";
-$status_meja = isset($_POST['status_meja']) ? $_POST['status_meja']:"";
 
-if ($kd_meja=="" || $kapasitas == "" || $status_meja == "") {
+$kd_resep = isset($_POST['kd_resep']) ? $_POST['kd_resep']:"";
+$nama_resep = isset($_POST['nama_resep']) ? $_POST['nama_resep']:"";
+
+$hasil=mysql_query("SELECT `kd_resep`,`kd_menu`,`nama_menu` FROM `resep` JOIN `menu` USING(`kd_menu`) WHERE `kd_resep`= '$kd_resep';");
+$r=mysql_fetch_array($hasil);
+$kd_menu = $r['kd_menu'];
+
+
+if ($kd_resep=="" || $nama_resep == "") {
 	echo "Data Gagal Tersimpan";
 } else {
-	$query = mysql_query("INSERT INTO meja (kd_meja,kapasitas,status_meja) values ('$kd_meja','$kapasitas','$status_meja')");
+	$query = mysql_query("INSERT INTO `resep` (`kd_resep`, `kd_menu`) VALUES ('$kd_resep', ''); ");
  	?>
+
  <script language="JavaScript">
  alert('Data Berhasil Disimpan');
- document.location='index.php?page=pengolahan_meja';
+ alert('<?php echo $kd_menu ?>')
+ document.location='../index.php?page=pengolahan_resep';
  </script>
 
  <?php  

@@ -125,7 +125,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <!-- end modal -->
 
                         <div class="clearfix margin-bottom-10">
                               <div class="btn-group">                               

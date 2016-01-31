@@ -198,16 +198,17 @@
                                     </div>
                                 </div>
                             </li>
+
                             <!-- Dropdown-->
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-icon">
-                                    <span class="icon fa fa-archive"></span><span class="title">Icons</span>
+                                    <span class="icon fa fa-archive"></span><span class="title">Customer Service</span>
                                 </a>
                                 <!-- Dropdown level 1 -->
                                 <div id="dropdown-icon" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="icons/glyphicons.html">Glyphicons</a>
+                                            <li><a href="index.php?page=pengolahan_pertanyaan">Data Pertanyaan</a>
                                             </li>
                                             <li><a href="icons/font-awesome.html">Font Awesomes</a>
                                             </li>
@@ -215,11 +216,28 @@
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <a href="license.html">
-                                    <span class="icon fa fa-thumbs-o-up"></span><span class="title">License</span>
+                               <!-- Dropdown-->
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-kasir">
+                                    <span class="icon fa fa-cubes"></span><span class="title">Kasir</span>
                                 </a>
+                                <!-- Dropdown level 1 -->
+                                <div id="dropdown-kasir" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="index.php?page=pengolahan_menu">Transaksi</a>
+                                            </li>
+                                            <li><a href="index.php?page=pengolahan_resep">Pengolahan Resep</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </li>
+                            <!-- Dropdown-->
+
+                            
+
+
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -240,10 +258,14 @@
                             case 'edit_meja': include "pengolahan_meja/edit_meja.php"; break;
                             case 'pengolahan_menu': include "pengolahan_menu/pengolahan_menu.php"; break;
                             case 'edit_menu': include "pengolahan_menu/edit_menu.php"; break;
-                            case 'pengolahan_resep': include "pengolahan_resep.php"; break;
-                            case 'edit_resep': include "edit_resep.php"; break;
+                            case 'pengolahan_resep': include "pengolahan_resep/pengolahan_resep.php"; break;
+                            case 'pengolahan_detail_resep': include "pengolahan_resep/pengolahan_detail_resep.php"; break;
+                            case 'edit_resep': include "pengolahan_resep/edit_resep.php"; break;
                             case 'pengolahan_bahan': include "pengolahan_bahan/pengolahan_bahan.php"; break;
-                            case 'edit_bahan': include "pengolahan_bahan/edit_resep.php"; break;
+                            case 'edit_bahan': include "pengolahan_bahan/edit_bahan.php"; break;
+                            case 'pengolahan_transaksi': include "transaksi/transaksi.php"; break;
+                            case 'edit_transaksi': include "transaksi/edit_transaksi.php"; break;
+                            case 'pengolahan_detail_transaksi': include "transaksi/detail_transaksi.php"; break;
                             case 'main':
                             default: include 'utama.php';
                         }

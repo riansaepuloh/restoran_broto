@@ -7,7 +7,10 @@
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    
    <!-- CSS Libs -->
+   <link rel="stylesheet" type="text/css" href="asset/css/datepicker.css">
+   <link rel="stylesheet" type="text/css" href="asset/css/datepicker.min.css">
     
 
 <body class="flat-blue">
@@ -41,9 +44,9 @@
                                         $id_baru=substr($hasil_id['kd_bahan_baku'],1,4);
                                         $tambah=$id_baru+1;
                                         if($tambah<10) {
-                                          $id="00".$tambah;
+                                          $id="B00".$tambah;
                                         } else {
-                                          $id="0".$tambah;
+                                          $id="B0".$tambah;
                                         }
                                         ?>
 
@@ -64,21 +67,45 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for = "contact-msg" class="col-lg-3 control-label">Kapasitas : </label>
+                                                            <label for="contact-name" class="col-lg-3 control-label">Nama bahan : </label>
                                                             <div class="col-lg-9">
-                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan Kapasitas" name="kapasitas">
+                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan Nama bahan" name="nama_bahan">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="contact-name" class="col-lg-3 control-label"> Status : </label>
+                                                            <label for="contact-name" class="col-lg-3 control-label"> Satuan : </label>
                                                             <div class="col-lg-9">
-                                                                <select class="form-control" name="status_bahan">
-                                                                    <option>kosong</option>
-                                                                    <option>terisi</option>
+                                                                <select class="form-control" name="satuan_bahan">
+                                                                    <option>gram</option>
+                                                                    <option>kilogram</option>
+                                                                    <option>buah</option>
+                                                                    <option>pcs</option>
                                                                 </select>
                                                             </div>
                                                         </div>
+
+                                                        <div class="form-group">
+                                                            <label for="contact-name" class="col-lg-3 control-label">Jumlah : </label>
+                                                            <div class="col-lg-9">
+                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan Jumlah bahan" name="jumlah_bahan">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="contact-name" class="col-lg-3 control-label">Tanggal Masuk : </label>
+                                                            <div class="col-lg-9">
+                                                                <input type="text" class="form-control" id="contract-name" placeholder="tahun-bulan-hari" name="tanggal_masuk">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="contact-name" class="col-lg-3 control-label">Tanggal Kadaluarsa : </label>
+                                                            <div class="col-lg-9">
+                                                                <input type="text" class="form-control" id="contract-name" placeholder="tahun-bulan-hari" name="tanggal_kadaluarsa">
+                                                            </div>
+                                                        </div>
+                                                        
 
                                                     </div>
                                                     <div class="modal-footer">
@@ -124,8 +151,8 @@
                                                 <td><?php echo $kolom['tanggal_masuk']?></td>
                                                 <td><?php echo $kolom['tanggal_kadaluarsa']?></td>
                                                 <td>
-                                                    <a href="index.php?page=edit_bahan&id=<?php echo $kolom['kd_bahan']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></button></a>
-                                                    <a href="pengolahan_bahan/hapus_bahan.php?page=hapus_bahan&id=<?php echo $kolom['kd_bahan'];?>"onclick="return confirm('apakah yakin menghapus data ?')" ><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
+                                                    <a href="index.php?page=edit_bahan&id=<?php echo $kolom['kd_bahan_baku']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></button></a>
+                                                    <a href="pengolahan_bahan/hapus_bahan.php?page=hapus_bahan&id=<?php echo $kolom['kd_bahan_baku'];?>"onclick="return confirm('apakah yakin menghapus data ?')" ><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
                                                 </td>
                                             </tr>
                                             <?php 
@@ -141,6 +168,9 @@
                             </div>
                         </div>
                     </div>
+                    <script type="text/javascript" src="js/datepicker.min.js"></script>
+                    <script type="text/javascript" src="js/datepicker.js"></script>
+
             
 </body>
 
