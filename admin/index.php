@@ -225,7 +225,7 @@
                                 <div id="dropdown-kasir" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="index.php?page=pengolahan_menu">Transaksi</a>
+                                            <li><a href="index.php?page=pengolahan_transaksi">Transaksi</a>
                                             </li>
                                             <li><a href="index.php?page=pengolahan_resep">Pengolahan Resep</a>
                                             </li>

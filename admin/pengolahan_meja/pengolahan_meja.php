@@ -80,6 +80,13 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group">
+                                                            <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                                                            <div class="col-lg-9">
+                                                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
@@ -105,6 +112,7 @@
                                                 <th>Kode Meja</th>
                                                 <th>Kapasitas</th>
                                                 <th>Status Meja</th>
+                                                <th>Password</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -117,6 +125,7 @@
                                                 <td><?php echo $kolom['kd_meja']?></td>
                                                 <td><?php echo $kolom['kapasitas']?></td>
                                                 <td><?php echo $kolom['status_meja']?></td>
+                                                <td><?php echo $kolom['password']?></td>
                                                 <td>
                                                     <a href="index.php?page=edit_meja&id=<?php echo $kolom['kd_meja']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></button></a>
                                                     <a href="pengolahan_meja/hapus_meja.php?page=hapus_meja&id=<?php echo $kolom['kd_meja'];?>"onclick="return confirm('apakah yakin menghapus data ?')" ><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>

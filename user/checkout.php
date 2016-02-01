@@ -4,6 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+session_start();
+$kd_meja=$_SESSION['kd_meja'];
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,16 +39,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header-top">
 		<div class="container">
 		<div class="col-md-4 world">
-					
+					No Meja <?php echo $kd_meja ?>
 				</div>
 				<div class="col-md-4 logo">
-					<a href="index.html"><img src="../img/icon/broto_restoran.png" alt=""></a>	
+					<a href="index.php"><img src="../img/icon/broto_restoran.png" alt=""></a>	
 				</div>
 		
 			<div class="col-md-4 header-left">		
 					
 					<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="checkout.php">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span></div>
 							<img src="images/cart.png" alt=""/></h3>
@@ -61,16 +67,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					
 				</div>
 	<div class="col-md-8 h_menu4">
+				<div class="col-sm-8 h_menu4">
 				<ul class="memenu skyblue">
-					  <li class=" grid"><a  href="index.php">Home</a></li>	
-				      <li><a  href="#">Men</a>
+					  <li class=" grid"><a  href="index.php">All Menu</a></li>	
+				      <li><a  href="makanan.php">Makanan</a>
 				      	
 					</li>
-				    <li class="grid"><a  href="#">	Women</a>
-					  	
+				    <li class="grid"><a  href="minuman.php">Minuman</a>
 			    </li>
-				<li><a  href="typo.html">Blog</a></li>				
-				<li><a class="color6" href="contact.html">Conact</a></li>
+				
 			  </ul> 
 			</div>
 				<div class="col-md-2 search">		
@@ -115,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---->
 <div class="container">
 	<div class="check-out">
-		<h1>Checkout</h1>
+		<h1>Pesanan</h1>
     	    <table >
 		  <tr align="center">
 			<th>Item</th>
@@ -128,7 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <?php
 				 			$iterasi = 0;
                             include "../admin/koneksi.php";
-                            $q=mysql_query("SELECT `kd_menu`,`deskripsi`,`keranjang`.`gambar`,`nama`,`keranjang`.`harga`,`qty`,`sub_total` FROM `keranjang` JOIN `menu` USING(`kd_menu`);");
+                            $q=mysql_query("SELECT `kd_menu`,`deskripsi`,`keranjang`.`gambar`,`nama`,`keranjang`.`harga`,`qty`,`sub_total` FROM `keranjang` JOIN `menu` USING(`kd_menu`) where kd_meja='$kd_meja';");
                             while($r=mysql_fetch_array($q)){                                            
                             $nama=substr($r['nama'],0,250);
                             $deskripsi=substr($r['deskripsi'],0,30);
@@ -157,76 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="clearfix"> </div>
     </div>
 </div>
-<!--footer-->
-<div class="footer">
-	<div class="container">
-		<div class="footer-top">
-			<div class="col-md-8 top-footer">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.91163207516!2d2.3470599!3d48.85885894999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C+France!5e0!3m2!1sen!2sin!4v1436340519910" allowfullscreen=""></iframe>
-			</div>
-			<div class="col-md-4 top-footer1">
-				<h2>Newsletter</h2>
-					<form>
-						<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
-						<input type="submit" value="SUBSCRIBE">
-					</form>
-			</div>
-			<div class="clearfix"> </div>	
-		</div>	
-	</div>
-	<div class="footer-bottom">
-		<div class="container">
-				<div class="col-md-3 footer-bottom-cate">
-					<h6>Categories</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li><a href="#">Dignissim neque</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						
-					</ul>
-				</div>
-				<div class="col-md-3 footer-bottom-cate">
-					<h6>Feature Projects</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li><a href="#">Dignissim neque</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						
-					</ul>
-				</div>
-				<div class="col-md-3 footer-bottom-cate">
-					<h6>Top Brands</h6>
-					<ul>
-						<li><a href="#">Curabitur sapien</a></li>
-						<li><a href="#">Dignissim purus</a></li>
-						<li><a href="#">Tempus pretium</a></li>
-						<li><a href="#">Dignissim neque</a></li>
-						<li><a href="#">Ornared id aliquet</a></li>
-						<li><a href="#">Ultrices id du</a></li>
-						<li><a href="#">Commodo sit</a></li>
-						
-					</ul>
-				</div>
-				<div class="col-md-3 footer-bottom-cate cate-bottom">
-					<h6>Our Address</h6>
-					<ul>
-						<li>Aliquam metus  dui. </li>
-						<li>orci, ornareidquet</li>
-						<li> ut,DUI.</li>
-						<li>nisi, dignissim</li>
-						<li>gravida at.</li>
-						<li class="phone">PH : 6985792466</li>
-					</ul>
-				</div>
-				<div class="clearfix"> </div>
-				<p class="footer-class"> © 2015 Fashion Mania. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-			</div>
-	</div>
-</div>
+
 
 <!--//footer-->
 </body>

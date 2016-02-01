@@ -26,7 +26,7 @@ if ($kd_menu =="" || $nama_menu == "" || $jenis == "" || $deskripsi == "" || $ha
 			    {           
 			        $gambar = $namafolder . basename($_FILES['foto']['name']);       
 			        if (move_uploaded_file($_FILES['foto']['tmp_name'], $gambar)) {
-			        	$query = mysql_query("INSERT INTO `db_restoran`.`menu` (`kd_menu`, `nama_menu`, `jenis`, `deskripsi`, `gambar`, `stok`, `harga`,`diskon`) 
+			        	$query = mysql_query("INSERT INTO `menu` (`kd_menu`, `nama_menu`, `jenis`, `deskripsi`, `gambar`, `stok`, `harga`,`diskon`) 
 								VALUES 
 								('$kd_menu', '$nama_menu', '$jenis', '$deskripsi', '$fileName', '$stok', '$harga','$diskon');");
 			              echo "<meta http-equiv='refresh' content='0; url=../index.php?page=pengolahan_menu'>";

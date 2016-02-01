@@ -1,6 +1,9 @@
-<?php 
+<?php
+session_start();
+$kd_meja=$_SESSION['kd_meja'];
 include "../admin/koneksi.php";
 if (isset($_GET['nama'])) {
+	
 	$nama = $_GET['nama'];
 	$query = "SELECT * FROM menu where nama_menu = '$nama'";
 	$hasil = mysql_query($query);
@@ -10,12 +13,13 @@ if (isset($_GET['nama'])) {
 	$gambar = $data['gambar'];
 	$harga = $data['harga'];
 	$qty = 1;
+	
 
 } else {
 	die ("Error tidak ada kode yang dipilih");
 }
 	if (!empty($kd_menu) && $kd_menu != "") {
-		$query = "INSERT INTO `keranjang` (`kd_menu`,`gambar`, `nama`, `harga`, `qty`, `sub_total`) VALUES ('$kd_menu','$gambar', '$nama', '$harga', '1', '$harga');";
+		$query = "INSERT INTO `keranjang` (`kd_menu`,`gambar`, `nama`, `harga`, `qty`, `sub_total`,`kd_meja`) VALUES ('$kd_menu','$gambar', '$nama', '$harga', '1', '$harga','$kd_meja');";
 		$sql   = mysql_query($query);
 		echo "<meta http-equiv='refresh' content='0; url=single.php?nama=$nama'>";
 		?>

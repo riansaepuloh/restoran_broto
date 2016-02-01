@@ -4,11 +4,6 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
-<?php
-session_start();
-$kd_meja=$_SESSION['kd_meja'];
- ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header-top">
 		<div class="container">
 		<div class="col-sm-4 world">
-					No Meja <?php echo $kd_meja ?>
+					
 				</div>
 				<div class="col-sm-4 logo">
 					<a href="index.php"><img src="../img/icon/broto_restoran.png" alt=""></a>	
@@ -80,6 +75,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				      	
 					</li>
 				    <li class="grid"><a  href="minuman.php">Minuman</a>
+			    </li>
+			    </li>
+				    <li class="grid"><a  href="logout.php">Logout</a>
 			    </li>
 				
 			  </ul> 
@@ -127,72 +125,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="content">
 	<div class="container">
 		<div class="content-top">
-			<h1>Menu Resto Pak Broto</h1>
-			<?php
-				 			$iterasi = 0;
-                            include "../admin/koneksi.php";
-                            $q=mysql_query("SELECT * FROM menu order by kd_menu DESC");
-                            while($r=mysql_fetch_array($q)){                                            
-                            $nama=substr($r['nama_menu'],0,250);
-                            $deskripsi=substr($r['deskripsi'],0,50);
-                            $harga=$r['harga'];
-                            $iterasi = $iterasi + 1;
-                            ?>
-                            <?php 
+			<form class="form-vertical login-form" action="proses_login_meja.php" method="post">
+			<div class="panel panel-info">
+            <div class="panel-heading">
+              <h2 class="panel-title">Login Meja</h2>
+            </div>
+            <div class="panel-body">
+              No Meja 		<input type="text" class="form-control" placeholder="Masukan nomor meja" name="kd_meja"> 
+              Password  	<input type="password" class="form-control" placeholder="Masukan password" name="password">
+            <br>
+			<div class="form-actions">
+				<button type="submit" id="back-btn" class="btn">
+				<i class="m-icon-swapleft"></i> Login
+				</button>         
+			</div> 
+			</div>
+          </div>
 
-                           	if(($iterasi % 4)==0 ){
-                             ?>
-			<div class="content-top1">
-				<div class="col-md-3 col-md2">
-					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.php?nama=<?php echo $nama ?>">
-							<img class="img-responsive" src=<?php echo "../img/menu/$r[gambar]"; ?> alt="" />
-						</a>
-						<h3><a href="single.php?nama=<?php echo $nama ?>" name ="nama"><?php echo $nama ?></a></h3>
-						<h6><?php echo $deskripsi ?></h6>
-						<div class="price">
-								<h5 class="item_price" name="harga">Rp.<?php echo $harga ?></h5>
-								<a href="tambahorder.php?nama=<?php echo $nama?>" class="item_add">Add To Cart</a>
-								<div class="clearfix"> </div>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>				 
+          </form>
 			
-			<?php 
-			} else {
-			
-			?>
-			<div class="col-md-3 col-md2">
-					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.php?nama=<?php echo $nama; ?>">
-							<img class="img-responsive" src=<?php echo "../img/menu/$r[gambar]"; ?> alt="" />
-						</a>
-						<h3><a href="single.php?nama=<?php echo $nama ?>" name="nama"><?php echo $nama ?></a></h3>
-						<h6><?php echo $deskripsi ?></h6>
-						<div class="price">
-								<h5 class="item_price">Rp.<?php echo $harga ?></h5>
-								<a href="tambahorder.php?nama=<?php echo $nama?>" class="item_add">Add To Cart</a>
-								<div class="clearfix"> </div>
-						</div>
-					</div>
-				</div>
-			 	
-			<?php
-					
-					}	 
-                 }
-                 ?>
+
 		</div>
 	</div>
 </div>
 <!--//content-->
 <!--footer-->
-<div class="footer">
-	
-
-</div>
 
 <!--//footer-->
 </body>

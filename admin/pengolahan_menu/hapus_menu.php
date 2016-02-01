@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 		$query = "DELETE FROM menu where kd_menu = '$kd_menu'";
 		$sql   = mysql_query($query);
 		error_reporting(0);
-		unlink("../../img/menu/".$gambar);
+		unlink('../../img/menu/'.$gambar);
 
 		if($sql){
 			header("location:../index.php?page=pengolahan_menu");

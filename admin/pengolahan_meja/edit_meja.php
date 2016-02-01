@@ -14,6 +14,7 @@ $hasil = mysql_fetch_array($sql);
 $kd_meja = $hasil['kd_meja'];
 $kapasitas = $hasil['kapasitas'];
 $status_meja = $hasil['status_meja'];
+$password = $hasil['password'];
 
 
 // proses edit
@@ -21,9 +22,10 @@ if(isset($_POST['edit'])){
 $kd_meja1 = $_POST['kd_meja1'];
 $kapasitas1 = $_POST['kapasitas1'];
 $status_meja1 = $_POST['status_meja1'];
+$password1 = $_POST['password1'];
 
 // update data
-$query = "UPDATE `meja` SET `kd_meja` = '$kd_meja1' , `kapasitas` = '$kapasitas1' , `status_meja` = '$status_meja1' WHERE `kd_meja` = '$kd_meja';";
+$query = "UPDATE `meja` SET `kd_meja` = '$kd_meja1' , `kapasitas` = '$kapasitas1' , `status_meja` = '$status_meja1' , `password` = '$password1' WHERE `kd_meja` = '$kd_meja';";
 $sql = mysql_query($query);
 if ($sql) {
 	echo "<meta http-equiv='refresh' content='0; url=index.php?page=pengolahan_meja'>";
@@ -68,6 +70,13 @@ if ($sql) {
                             </select>
                         </div>
                     </div>  
+
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                        <div class="col-lg-6">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password1" value="<?php echo $password ?>">
+                        </div>
+                    </div>
                     
                     <div class="form-action no-margin-bottom" style="margin-left:40%">
                     <input class="btn btn-primary" type="submit" name="edit" id="edit" value="Edit">

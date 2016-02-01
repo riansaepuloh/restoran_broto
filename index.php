@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="refresh" content="0;url=user/index.html">
-<title>SB Admin 2</title>
+<title>Restoran Broto</title>
 <script language="javascript">
     window.location.href = "user/index.php"
 </script>

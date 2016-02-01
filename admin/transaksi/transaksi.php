@@ -14,7 +14,7 @@
 
              <?php 
                 include "koneksi.php";
-                $hasil=mysql_query("SELECT * FROM `order`;");
+                $hasil=mysql_query("SELECT * FROM keranjang ORDER BY kd_meja;");
              ?>
 
             <!-- Main Content -->
@@ -87,22 +87,15 @@
                                         </div>
 
 
-                        <div class="clearfix margin-bottom-10">
-                              <div class="btn-group">                               
-                              <button a href="#daftar" data-toggle="modal" class="btn btn-success"><span class="icon fa fa-user-plus"></span>
-                                 Tambah Pertanyaan
-                                 </button>
-                              </div>
-                              
-                        </div>
+                       
                                     <table class="datatable table table-striped" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>No Order</th>
-                                                <th>Status</th>
-                                                <th>Tanggal Pesanan</th>
-                                                <th>Total Pesanan</th>
                                                 <th>Kode Meja</th>
+                                                <th>Nama Menu</th>
+                                                <th>Harga</th>
+                                                <th>Qty</th>
+                                                <th>Subtotal</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -111,11 +104,11 @@
                                             while($kolom=mysql_fetch_array($hasil)){
                                             ?>
                                             <tr>
-                                                <td><?php echo $kolom['no_order']?></td>
-                                                <td><?php echo $kolom['status']?></td>
-                                                <td><?php echo $kolom['total_order']?></td>
-                                                <td><?php echo $kolom['total_harga_order']?></td>
                                                 <td><?php echo $kolom['kd_meja']?></td>
+                                                <td><?php echo $kolom['nama']?></td>
+                                                <td><?php echo $kolom['harga']?></td>
+                                                <td><?php echo $kolom['qty']?></td>
+                                                <td><?php echo $kolom['sub_total']?></td>
                                                 <td>
                                                     <a href="index.php?page=edit_transaksi&id=<?php echo $kolom['no_order']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></button></a>
                                                 </td>

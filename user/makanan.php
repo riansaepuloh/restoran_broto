@@ -4,11 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
 <?php
 session_start();
 $kd_meja=$_SESSION['kd_meja'];
+
  ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<?php
 				 			$iterasi = 0;
                             include "../admin/koneksi.php";
-                            $q=mysql_query("SELECT * FROM menu order by kd_menu DESC");
+                            $q=mysql_query("SELECT * FROM menu WHERE jenis='makanan' order by kd_menu DESC");
                             while($r=mysql_fetch_array($q)){                                            
                             $nama=substr($r['nama_menu'],0,250);
                             $deskripsi=substr($r['deskripsi'],0,50);
