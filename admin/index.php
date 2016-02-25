@@ -210,8 +210,7 @@
                                         <ul class="nav navbar-nav">
                                             <li><a href="index.php?page=pengolahan_pertanyaan">Data Pertanyaan</a>
                                             </li>
-                                            <li><a href="icons/font-awesome.html">Font Awesomes</a>
-                                            </li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -264,6 +263,8 @@
                             case 'pengolahan_bahan': include "pengolahan_bahan/pengolahan_bahan.php"; break;
                             case 'edit_bahan': include "pengolahan_bahan/edit_bahan.php"; break;
                             case 'pengolahan_transaksi': include "transaksi/transaksi.php"; break;
+                            case 'pengolahan_pertanyaan': include "pengolahan_pertanyaan/pengolahan_pertanyaan.php"; break;
+                            case 'edit_pertanyaan': include "pengolahan_pertanyaan/edit_pertanyaan.php"; break;
                             case 'edit_transaksi': include "transaksi/edit_transaksi.php"; break;
                             case 'pengolahan_detail_transaksi': include "transaksi/detail_transaksi.php"; break;
                             case 'main':

@@ -88,7 +88,7 @@
 
 
                        
-                                    <table class="datatable table table-striped" cellspacing="0" width="100%">
+                                     <table class="datatable table table-striped" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
                                                 <th>Kode Meja</th>
@@ -96,6 +96,7 @@
                                                 <th>Harga</th>
                                                 <th>Qty</th>
                                                 <th>Subtotal</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -109,9 +110,7 @@
                                                 <td><?php echo $kolom['harga']?></td>
                                                 <td><?php echo $kolom['qty']?></td>
                                                 <td><?php echo $kolom['sub_total']?></td>
-                                                <td>
-                                                    <a href="index.php?page=edit_transaksi&id=<?php echo $kolom['no_order']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></button></a>
-                                                </td>
+                                                
                                             </tr>
                                             <?php 
                                             }
