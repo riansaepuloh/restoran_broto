@@ -3,7 +3,7 @@ include "../admin/koneksi.php";
 $pass=$_POST['password'];
 $user=$_POST['username'];
 $akses=$_POST['hak_akses'];
-$login=sprintf("SELECT * FROM karyawan WHERE username='$user' AND password='$pass'");
+$login=sprintf("SELECT * FROM users WHERE username='$user' AND password='$pass'");
 $cek_lagi=mysql_query($login);
 $ketemu=mysql_num_rows($cek_lagi);
 $r=mysql_fetch_array($cek_lagi);
@@ -12,11 +12,13 @@ if ($ketemu > 0){
   session_start();
   $_SESSION['user'] = $r['username'];
   $_SESSION['pass'] = $r['password'];
-  $_SESSION['akses'] = $r ['hak_akses'];
+  $_SESSION['akses'] = $r['hak_akses'];
 
 
- if ($_SESSION['akses']==1) {
+ if ($_SESSION['akses']=="administrator") {
   header('location:../admin/index.php');
+ } else {
+ 	header('location:../admin/indexuser.php');
  }
 }
 else{

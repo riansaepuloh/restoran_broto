@@ -37,7 +37,7 @@
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
 		<form class="form-vertical login-form" action="proses_login.php" method="post">
-			<h3 class="form-title">Login to your account</h3>
+			<h3 class="form-title">Kredit Rusdi</h3>
 			<div class="alert alert-error hide">
 				<button class="close" data-dismiss="alert"></button>
 				<span>Enter any username and password.</span>

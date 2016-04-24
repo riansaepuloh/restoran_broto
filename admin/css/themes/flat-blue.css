@@ -12,7 +12,7 @@
     border-bottom: 0px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); }
     .flat-blue .navbar > .container-fluid, .flat-blue .navbar.navbar-default > .container-fluid {
-      background-color: #FFF; }
+      background-color: #00ba8b; }
     .flat-blue .navbar .navbar-header .navbar-brand, .flat-blue .navbar.navbar-default .navbar-header .navbar-brand {
       color: #F9F9F9; }
     .flat-blue .navbar .navbar-header .navbar-expand-toggle, .flat-blue .navbar.navbar-default .navbar-header .navbar-expand-toggle {
@@ -24,7 +24,7 @@
       .flat-blue .navbar .navbar-breadcrumb li a, .flat-blue .navbar.navbar-default .navbar-breadcrumb li a {
         color: #353d47; }
     .flat-blue .navbar .navbar-nav > li, .flat-blue .navbar.navbar-default .navbar-nav > li {
-      border-left: 1px solid #F9F9F9; }
+      border-left: 1px solid #FFF; }
       .flat-blue .navbar .navbar-nav > li > a, .flat-blue .navbar.navbar-default .navbar-nav > li > a {
         color: #353d47; }
     .flat-blue .navbar .navbar-nav > li:hover > a, .flat-blue .navbar.navbar-default .navbar-nav > li:hover > a {
@@ -154,7 +154,7 @@
           margin-left: -3px; }
       .flat-blue .side-menu.sidebar-inverse .navbar > li:hover > a {
         background-color: #FA2A00;
-        color: #FFF; }
+        color: #128668 }
       .flat-blue .side-menu.sidebar-inverse .navbar li.dropdown > .panel-collapse {
         background-color: rgba(0, 0, 0, 0.1); }
       .flat-blue .side-menu.sidebar-inverse .navbar li.dropdown .panel-body {
@@ -163,7 +163,7 @@
     .flat-blue .navbar.navbar-default .navbar-nav > li {
       border-left: 0; }
     .flat-blue .navbar.navbar-default .navbar-right {
-      background-color: #FFF; }
+      background-color: #128668; }
     .flat-blue .navbar.navbar-inverse .navbar-nav > li {
       border-left: 0; }
     .flat-blue .navbar.navbar-inverse .navbar-right {
@@ -639,9 +639,9 @@
   .flat-blue.landing-page .navbar .navbar-nav > .active > a {
     background-color: transparent; }
   .flat-blue.landing-page .navbar .navbar-nav > li {
-    border-left: 0px solid #F9F9F9; }
+    border-left: 0px solid #1DB378; }
     .flat-blue.landing-page .navbar .navbar-nav > li > a {
-      color: #FFF; }
+      color: #1DB378; }
   .flat-blue.landing-page .navbar .navbar-collapse {
     border: 0; }
 
@@ -658,7 +658,7 @@
     background-color: transparent;
     color: #FFF; }
   .flat-blue.landing-page .navbar.affix .navbar-nav > li > a {
-    color: #FFF; } }
+    color: #128668; } }
 
 .flat-blue.landing-page .navbar.affix .navbar-brand {
   color: #353d47; }

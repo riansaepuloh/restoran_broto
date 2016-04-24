@@ -4,7 +4,7 @@
 <meta http-equiv="refresh" content="0;url=user/index.html">
 <title>Restoran Broto</title>
 <script language="javascript">
-    window.location.href = "user/index.php"
+    window.location.href = "login/index.php"
 </script>
 </head>
 <body>

@@ -14,13 +14,12 @@
 
              <?php 
                 include"koneksi.php";
-                $hasil=mysql_query("SELECT `id_karyawan`,`nama_karyawan`,`alamat`,`jenis_kelamin`,`nama_bagian`, `username`,`password` FROM `karyawan` 
-JOIN `bagian_kerja` ON `karyawan`.`kd_bagian` = `bagian_kerja`.`kd_bagian`;");
+                $hasil=mysql_query("SELECT * FROM `users`;");
              ?>
 
             <!-- Main Content -->
                     <div class="page-title">
-                        <span class="title">Restoran Pak Broto Azhari</span>
+                        <span class="title">Kredit Rusdi</span>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
@@ -36,50 +35,37 @@ JOIN `bagian_kerja` ON `karyawan`.`kd_bagian` = `bagian_kerja`.`kd_bagian`;");
                                      <!-- Modal -->
                                         <div class="modal fade modal-success" id="daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-                                        <?php
-                                        $query=mysql_query("select max(id_karyawan) as id_karyawan from karyawan");
-                                        $hasil_id=mysql_fetch_array($query);
-                                        $id_baru=substr($hasil_id['id_karyawan'],1,4);
-                                        $tambah=$id_baru+1;
-                                        if($tambah<10) {
-                                          $id="K00".$tambah;
-                                        } else {
-                                          $id="K0".$tambah;
-                                        }
-                                        ?>
+
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title" id="myModalLabel">Tambah Karyawan</h4>
+                                                        <h4 class="modal-title" id="myModalLabel">Tambah Petugas</h4>
                                                     </div>
                                                     <form class="form-horizontal" action="karyawan/simpan_karyawan.php" method="post">
                                                     <div class="modal-body">
                                                          <div class="form-group">
-                                                            <label for="contact-name" class="col-lg-3 control-label"> Id Karyawan : </label>
+                                                            <label for="contact-name" class="col-lg-3 control-label"> Nama : </label>
                                                             <div class="col-lg-9">
-                                                                <input type="text" class="form-control" id="contract-name" name="id_karyawan" value="<?php echo $id ?>">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for = "contact-msg" class="col-lg-3 control-label">Nama Karyawan : </label>
-                                                            <div class="col-lg-9">
-                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan Nama Karyawan" name="nama_karyawan">
+                                                                <input type="text" class="form-control" id="contract-name" name="nama" placeholder="Masukan Nama Petugas">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for = "contact-msg" class="col-lg-3 control-label">Alamat : </label>
                                                             <div class="col-lg-9">
-                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan Alamat" name="alamat">
+                                                            <textarea class="form-control" id="contract-name" name="alamat" placeholder="Masukan Alamat Petugas">
+                                                            </textarea>
                                                             </div>
                                                         </div>
 
+                                                        
+
                                                        <div class="form-group">
                                                         <label for = "contact-msg" class="col-lg-3 control-label">Jenis Kelamin : </label>
+                                                        <div class="col-lg-9">
                                                           <div class="radio3 radio-check radio-inline">
-                                                            <input type="radio" id="radio4" name="jenis_kelamin" value="Laki-laki" checked="">
+                                                            <input type="radio" id="radio4" name="jenis_kelamin" value="Laki-Laki" checked="">
                                                             <label for="radio4">
                                                               Laki-laki
                                                             </label>
@@ -90,25 +76,15 @@ JOIN `bagian_kerja` ON `karyawan`.`kd_bagian` = `bagian_kerja`.`kd_bagian`;");
                                                               Perempuan
                                                             </label>
                                                           </div>
+                                                          </div>
                                                         </div>
 
-                                                          <div class="form-group">
-                                                            <label for="contact-name" class="col-lg-3 control-label"> Kode Bagian : </label>
-                                                            <div class="col-lg-6">
-                                                                <select class="form-control" name="kd_bagian">
-                                                                    <?php 
-                                                                    $query1 = "SELECT `kd_bagian` FROM `bagian_kerja`;";
-                                                                    $sql1 = mysql_query($query1);
-                                                                    while ( $baris = mysql_fetch_array($sql1)) {
-                                                                        echo '<option value="'.$baris['kd_bagian'].'">'.$baris['kd_bagian'].'</option>';
-                                                                    }
-                                                                    
-                                                                     ?>
-
-                                                                </select>
+                                                        <div class="form-group">
+                                                            <label for = "contact-msg" class="col-lg-3 control-label">Jabatan : </label>
+                                                            <div class="col-lg-9">
+                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan Jabatan" name="jabatan">
                                                             </div>
                                                         </div>
-
 
                                                          <div class="form-group">
                                                             <label for="contact-name" class="col-lg-3 control-label"> Username : </label>
@@ -121,6 +97,21 @@ JOIN `bagian_kerja` ON `karyawan`.`kd_bagian` = `bagian_kerja`.`kd_bagian`;");
                                                             <label for="contact-name" class="col-lg-3 control-label"> Password : </label>
                                                             <div class="col-lg-9">
                                                                 <input type="password" class="form-control" id="contract-name" placeholder="Masukan Password" name="password">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="contact-name" class="col-lg-3 control-label"> No. HP : </label>
+                                                            <div class="col-lg-9">
+                                                                <input type="text" class="form-control" id="contract-name" placeholder="Masukan No HP" name="no_hp">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="contact-name" class="col-lg-3 control-label"> Hak Akses : </label>
+                                                            <div class="col-lg-9">
+                                                                <select name="hak_akses">
+                                                                    <option value="administrator">ADMINISTRATOR</option>
+                                                                    <option value="user">USER</option>
+                                                                </select>
                                                             </div>
                                                         </div>
 
@@ -146,13 +137,14 @@ JOIN `bagian_kerja` ON `karyawan`.`kd_bagian` = `bagian_kerja`.`kd_bagian`;");
                                     <table class="datatable table table-striped" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
                                                 <th>Nama</th>
                                                 <th>Alamat</th>
                                                 <th>Jenis Kelamin</th>
                                                 <th>Jabatan</th>
                                                 <th>Username</th>
                                                 <th>Password</th>
+                                                <th>No HP</th>
+                                                <th>Hak Akses</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -162,17 +154,18 @@ JOIN `bagian_kerja` ON `karyawan`.`kd_bagian` = `bagian_kerja`.`kd_bagian`;");
                                             while($kolom=mysql_fetch_array($hasil)){
                                             ?>
                                             <tr>
-                                                <td><?php echo $kolom['id_karyawan']?></td>
-                                                <td><?php echo $kolom['nama_karyawan']?></td>
+                                                <td><?php echo $kolom['nama']?></td>
                                                 <td><?php echo $kolom['alamat']?></td>
                                                 <td><?php echo $kolom['jenis_kelamin']?></td>
-                                                <td><?php echo $kolom['nama_bagian']?></td>
+                                                <td><?php echo $kolom['jabatan']?></td>
                                                 <td><?php echo $kolom['username']?></td>
                                                 <td><?php echo $kolom['password']?></td>
+                                                <td><?php echo $kolom['no_hp']?></td>
+                                                <td><?php echo $kolom['hak_akses']?></td>
                                                 <td>
 
-                                                    <a href="index.php?page=edit_karyawan&id=<?php echo $kolom['id_karyawan']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></a>
-                                                    <a href="karyawan/hapus_karyawan.php?page=hapus_karyawan&id=<?php echo $kolom['id_karyawan'];?>"onclick="return confirm('apakah yakin menghapus data ?')" ><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
+                                                    <a href="index.php?page=edit_karyawan&id=<?php echo $kolom['username']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></a>
+                                                    <a href="karyawan/hapus_karyawan.php?page=hapus_karyawan&id=<?php echo $kolom['username'];?>"onclick="return confirm('apakah yakin menghapus data ?')" ><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
                                                 </td>
                                             </tr>
                                             <?php 
