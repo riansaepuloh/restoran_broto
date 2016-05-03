@@ -41,11 +41,9 @@ CREATE TABLE `barang` (
   PRIMARY KEY (`kd_barang`),
   KEY `barang_ibfk_1` (`nf`),
   CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`nf`) REFERENCES `faktur` (`nf`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 /*Data for the table `barang` */
-
-insert  into `barang`(`nf`,`kd_barang`,`namabarang1`,`merkbarang1`,`typebarang1`,`unitbarang1`,`noseribarang1`,`namabarang2`,`merkbarang2`,`typebarang2`,`unitbarang2`,`noseribarang2`,`namabarang3`,`merkbarang3`,`typebarang3`,`unitbarang3`,`noseribarang3`) values ('0001',18,'RICE COOKER','MIYAKO','BIG',1,'200','STRIKA','MASPION','SMAL',1,'310','KULKAS','SHARP','2 PINTU',1,'244'),('0002',19,'RICE COOKER','MIYAKO','BIG',1,'200','KULKAS','MASPION','SMAL',1,'310','','','',0,''),('0003',20,'HOME THEATER','POLYTRON','USB BESAR',1,'233','','','',0,'','','','',0,''),('0005',22,'RICE COOKER','MIYAKO','BIG',1,'123','STRIKA','MASPION','SMAL',1,'323','KULKAS','SHARP','2 PINTU',1,'244');
 
 /*Table structure for table `barang_keluar` */
 
@@ -103,8 +101,6 @@ CREATE TABLE `faktur` (
 
 /*Data for the table `faktur` */
 
-insert  into `faktur`(`nf`,`no_faktur`,`tahun`,`jt`,`tgl_faktur`,`surveyor`,`sales`,`supervisor`,`penjamin`,`sumber`,`tpb`,`tglangsur1`,`tglangsur2`,`username`,`banyakangsuran1`,`nominalangsuran1`,`saldo1`,`banyakangsuran2`,`nominalangsuran2`,`saldo2`,`total`,`id_konsumen`) values ('0001','0002/01/2016','2016',1,'01/04/2016','Rusdi','Noor','Firdaus','Batur','SPA','01/04/2016','01/04/2016','01/04/2017',NULL,12,385000,4620000,0,0,0,4620000,'ks0001'),('0002','0002/01/2016','2016',1,'01/04/2016','Rusdi','Noor','Firdaus','Batur','SPA','01/04/2016','01/04/2016','01/04/2017',NULL,12,385000,4620000,12,3850000,4620000,9240000,'ks0002'),('0003','0002/02/2016','2016',2,'01/04/2016','Rusdi','Noor','Firdaus','Batur','SPA','02/04/2016','02/04/2016','02/04/2017',NULL,24,100000,2400000,0,0,0,2400000,'ks0003'),('0005','0005/04/2016','2016',5,'05/04/2016','Rusdi','Noor','Firdaus','Batur','SPA','05/04/2016','05/04/2016','05/04/2017',NULL,12,500000,6000000,0,0,0,6000000,'ks0005');
-
 /*Table structure for table `konsumen` */
 
 DROP TABLE IF EXISTS `konsumen`;
@@ -132,8 +128,6 @@ CREATE TABLE `konsumen` (
 
 /*Data for the table `konsumen` */
 
-insert  into `konsumen`(`id_konsumen`,`nama`,`tgl_lahir`,`jalan`,`dp`,`kelurahan`,`rt`,`rw`,`kota`,`tlp`,`kantor`,`alamatkantor`,`jabatan`,`telp_kantor`,`agama`,`wilayah`,`spa`) values ('ks0001','Rian Saepuloh','15/03/1992','01/04/2016',3850000,'Sukasirnarasa','02','04','Sumedang','0855555553422','InasiaTech','Tubagus Ismail Dalam','CEO','022044444','Islam','Sumedang',30),('ks0002','Panji','10/03/1992','01/04/2016',3850000,'Gandu','02','04','Majalengka','0855555553422','InasiaTech','Tubagus Ismail Dalam','Programer','022044444','Islam','Majalengka',30),('ks0003','Candra','26/11/1994','01/04/2016',100000,'Sukamaju','','','','08535353888','Nusantara Inc','Tubagus Ismail Raya','Pemilik','0220444566','Islam','Sumedang',40),('ks0005','Rizqi','01/09/1995','Cibogo',500000,'Cipanas','05','09','Cianjur','0877777765455','InasiaTech','Tubagus Ismail Dalam','Programer','0220444566','Islam','Cianjur',20);
-
 /*Table structure for table `transaksi` */
 
 DROP TABLE IF EXISTS `transaksi`;
@@ -149,14 +143,14 @@ CREATE TABLE `transaksi` (
   `nilai_angsuran` double DEFAULT NULL,
   `saldo_piutang` double DEFAULT NULL,
   `keterangan` varchar(255) DEFAULT NULL,
+  `kd_angsuran` int(5) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`kd_angsuran`),
   KEY `transaksi_ibfk_1` (`nf`),
   KEY `angsuranke` (`angsuranke`),
   CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`nf`) REFERENCES `faktur` (`nf`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `transaksi` */
-
-insert  into `transaksi`(`nf`,`angsuranke`,`tgl_transaksi`,`no_bukti_kas`,`no_bukti_kwitansi`,`in`,`out`,`nilai_angsuran`,`saldo_piutang`,`keterangan`) values ('0001',1,'24/04/2016','304','9004','','',385000,4235000,''),('0001',2,'24/04/2016','1014','1201','','',385000,3850000,''),('0002',1,'24/04/2016','DB','','','',4235000,5005000,''),('0005',1,'24/04/2016','304','9004','','',500000,5500000,'');
 
 /*Table structure for table `users` */
 
@@ -176,7 +170,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`nama`,`alamat`,`jenis_kelamin`,`jabatan`,`username`,`password`,`hak_akses`,`no_hp`) values ('rian','sumedang                                                                                                                ','Laki-Laki','kasir','riansaepuloh','rian','administrator','08562286326'),('Rusdi','Karawang                                                                                                                                                                                                                                                       ','Laki-Laki','Pemiliktoko','rusdinoor','rusdi','user','08678487263424'),('user','user                                                                                        ','Laki-Laki','user','user','user','user','1234');
+insert  into `users`(`nama`,`alamat`,`jenis_kelamin`,`jabatan`,`username`,`password`,`hak_akses`,`no_hp`) values ('admin','admin','Laki-Laki','admin','admin','admin','administrator','08877777'),('Rusdi','Karawang                                                                                                                                                                                                                                                       ','Laki-Laki','Pemiliktoko','rusdinoor','rusdi','user','08678487263424'),('user','user                                                                                        ','Laki-Laki','user','user','user','user','1234');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

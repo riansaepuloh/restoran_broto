@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if(empty($_SESSION['akses']==2)){
+    if(empty($_SESSION['akses']=='user')){
         echo "<meta http-equiv='refresh' content='0; url=indexuser.php'>";
     } else {
         include('koneksi.php');
@@ -10,7 +10,7 @@
 <html>
 
 <head>
-    <title>Kredit Rusdi</title>
+    <title>SEPAKAT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
@@ -39,7 +39,7 @@
                         <ol class="breadcrumb navbar-breadcrumb">
 
                              <li > </li> 
-                             <li class="active"><i class="fa fa-money icon"></i> Kredit Rusdi</li>
+                             <li class="active"><i class="fa fa-money icon"></i> SEPAKAT</li>
                         </ol>
                         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                             <i class="fa fa-th icon"></i>
@@ -49,49 +49,8 @@
                         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                             <i class="fa fa-times icon"></i>
                         </button>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-comments-o"></i></a>
-                            <ul class="dropdown-menu animated fadeInDown">
-                                <li class="title">
-                                    Notification <span class="badge pull-right">0</span>
-                                </li>
-                                <li class="message">
-                                    No new notification
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown danger">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-star-half-o"></i> 4</a>
-                            <ul class="dropdown-menu danger  animated fadeInDown">
-                                <li class="title">
-                                    Notification <span class="badge pull-right">4</span>
-                                </li>
-                                <li>
-                                    <ul class="list-group notifications">
-                                        <a href="#">
-                                            <li class="list-group-item">
-                                                <span class="badge">1</span> <i class="fa fa-exclamation-circle icon"></i> new registration
-                                            </li>
-                                        </a>
-                                        <a href="#">
-                                            <li class="list-group-item">
-                                                <span class="badge success">1</span> <i class="fa fa-check icon"></i> new orders
-                                            </li>
-                                        </a>
-                                        <a href="#">
-                                            <li class="list-group-item">
-                                                <span class="badge danger">2</span> <i class="fa fa-comments icon"></i> customers messages
-                                            </li>
-                                        </a>
-                                        <a href="#">
-                                            <li class="list-group-item message">
-                                                view all
-                                            </li>
-                                        </a>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        
+                        
                         <li class="dropdown profile">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo "$_SESSION[user]"; ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu animated fadeInDown">
@@ -133,12 +92,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="indexuser.php?page=pengolahan_meja"><span class="icon fa fa-list"></span> EDIT DATA KONSUMEN</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    
                                 </div>
                             </li>
 
@@ -162,12 +116,10 @@
                         <?php 
                         $page = (isset($_GET['page']))? $_GET['page'] : "main";
                         switch ($page) {
-                            case 'karyawan': include "karyawan/karyawan.php"; break;
-                            case 'edit_karyawan': include "karyawan/edit_karyawan.php"; break;
-                            case 'pengolahan_kredit': include "pengolahan_kredit/pengolahan_kredit.php"; break;
-                            case 'edit_kredit': include "pengolahan_kredit/edit_kredit.php"; break;
-                            case 'kredit_baru': include "pengolahan_kredit/kredit_baru.php"; break;
-                            case 'detail_kredit': include "pengolahan_kredit/detail_kredit.php"; break;
+                            case 'pengolahan_kredit': include "pengolahan_kredit_baru/pengolahan_kredit.php"; break;
+                            case 'edit_kredit': include "pengolahan_kredit_baru/edit_kredit.php"; break;
+                            case 'kredit_baru': include "pengolahan_kredit_baru/kredit_baru.php"; break;
+                            case 'detail_kredit': include "pengolahan_kredit_baru/detail_kredit.php"; break;
                             case 'main':
                             default: include 'utama.php';
                         }

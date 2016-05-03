@@ -37,7 +37,7 @@
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
 		<form class="form-vertical login-form" action="proses_login.php" method="post">
-			<h3 class="form-title">Kredit Rusdi</h3>
+			<h3 class="form-title">LOGIN SEPAKAT</h3>
 			<div class="alert alert-error hide">
 				<button class="close" data-dismiss="alert"></button>
 				<span>Enter any username and password.</span>
@@ -126,7 +126,7 @@
 		});
 	</script>
 	<!-- END JAVASCRIPTS -->
-	<div style="position:absolute; bottom:0px; left:0px; "><a href="http://www.justukfreebies.co.uk/website-templates/free-responsive-login-form-template/">Free Website Templates</a></div>
+	<div style="position:absolute; bottom:0px; left:0px; "><a href="http://www.justukfreebies.co.uk/website-templates/free-responsive-login-form-template/"></a></div>
 </body>
 <!-- END BODY -->
 </html>

@@ -10,7 +10,7 @@
 <html>
 
 <head>
-    <title>Kredit Rusdi</title>
+    <title>SEPAKAT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
@@ -39,7 +39,7 @@
                         <ol class="breadcrumb navbar-breadcrumb">
 
                              <li > </li> 
-                             <li class="active"><i class="fa fa-money icon"></i> Kredit Rusdi</li>
+                             <li class="active"><i class="fa fa-money icon"></i> SEPAKAT</li>
                         </ol>
                         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                             <i class="fa fa-th icon"></i>
@@ -108,13 +108,13 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="index.php?page=edit_info_konsumen"><span class="icon fa fa-list"></span> EDIT DATA KONSUMEN</a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
+                            </li>
+
+                            <li class="panel panel-default dropdown">
+                                <a href="index.php?page=gudang">
+                                    <span class="icon fa fa-file-text-o"></span><span class="title"> GUDANG</span>
+                                </a>
                             </li>
 
                             <!-- Dropdown-->
@@ -144,19 +144,10 @@
                             case 'kredit_baru': include "pengolahan_kredit/kredit_baru.php"; break;
                             case 'detail_kredit': include "pengolahan_kredit/detail_kredit.php"; break;
                             case 'edit_info_konsumen': include "pengolahan_kredit/edit_info_konsumen.php"; break;
+                            case 'print_faktur': include "pengolahan_kredit/print_faktur.php"; break;
+                            case 'gudang': include "gudang/gudang.php"; break;
+                            case 'edit_gudang': include "gudang/edit_gudang.php"; break;
 
-                            case 'pengolahan_menu': include "pengolahan_menu/pengolahan_menu.php"; break;
-                            case 'edit_menu': include "pengolahan_menu/edit_menu.php"; break;
-                            case 'pengolahan_resep': include "pengolahan_resep/pengolahan_resep.php"; break;
-                            case 'pengolahan_detail_resep': include "pengolahan_resep/pengolahan_detail_resep.php"; break;
-                            case 'edit_resep': include "pengolahan_resep/edit_resep.php"; break;
-                            case 'pengolahan_bahan': include "pengolahan_bahan/pengolahan_bahan.php"; break;
-                            case 'edit_bahan': include "pengolahan_bahan/edit_bahan.php"; break;
-                            case 'pengolahan_transaksi': include "transaksi/transaksi.php"; break;
-                            case 'pengolahan_pertanyaan': include "pengolahan_pertanyaan/pengolahan_pertanyaan.php"; break;
-                            case 'edit_pertanyaan': include "pengolahan_pertanyaan/edit_pertanyaan.php"; break;
-                            case 'edit_transaksi': include "transaksi/edit_transaksi.php"; break;
-                            case 'pengolahan_detail_transaksi': include "transaksi/detail_transaksi.php"; break;
                             case 'main':
                             default: include 'utama.php';
                         }

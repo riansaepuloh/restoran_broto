@@ -76,11 +76,10 @@ $_SESSION['nf'] = $nf;
                     <div class="card-title">
                         <div class="title">INFORMASI KONSUMEN</div>
                     </div>
-                    <form method="POST" action="pengolahan_kredit/print_faktur.php" target="_blank">
+                    <form method="POST" action="pengolahan_kredit_baru/print_faktur.php" target="_blank">
                     <table border="0" align="right">
                            <tr>
                                <td align="right">
-                               <a href="index.php?page=edit_info_konsumen&id=<?php echo $nf; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> EDIT INFO KONSUMEN </button></a>
                                <input type="submit" value="CETAK FAKTUR" class="btn btn-success">
                                <!-- <a href="pengolahan_kredit/print_faktur.php?>" target="_blank"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> CETAK FAKTUR </button></a> -->
                                </td>
@@ -415,7 +414,7 @@ $_SESSION['nf'] = $nf;
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel">Bayar Angsuran</h4>
                                 </div>
-                                <form class="form-horizontal" action="pengolahan_kredit/simpan_penyetoran.php" method="post">
+                                <form class="form-horizontal" action="pengolahan_kredit_baru/simpan_penyetoran.php" method="post">
                                 
                                 <div class="modal-body">
                                     <input type="hidden" name="nf" value="<?php echo "$nf"; ?>">

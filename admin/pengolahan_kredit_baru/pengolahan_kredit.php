@@ -36,7 +36,7 @@
 
                         <div class="clearfix margin-bottom-10">
                               <div class="btn-group">
-                              <a href="index.php?page=kredit_baru">                               
+                              <a href="indexuser.php?page=kredit_baru">                               
                               <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"> </span> KEREDIT BARU</button></a>
                               </div>
                               
@@ -48,7 +48,7 @@
                                                 <th>NAMA</th>
                                                 <th>JATUH TEMPO</th>
                                                 <th>TANGGAL FAKTUR</th>
-                                                <th><p align="center">Aksi</p></th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -62,7 +62,7 @@
                                                 <td><?php echo $kolom['jt']?></td>
                                                 <td><?php echo $kolom['tgl_faktur']?></td>
                                                 <td align="center">
-                                                    <a href="index.php?page=detail_kredit&id=<?php echo $kolom['nf']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> LIHAT DATA KONSIMEN / PENYETORAN </button></a>
+                                                    <a href="indexuser.php?page=detail_kredit&id=<?php echo $kolom['nf']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> LIHAT DATA KONSIMEN / PENYETORAN </button></a>
                                                     
                                                 </td>
                                             </tr>

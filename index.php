@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="refresh" content="0;url=user/index.html">
-<title>Restoran Broto</title>
+<title>SEPAKAT</title>
 <script language="javascript">
     window.location.href = "login/index.php"
 </script>

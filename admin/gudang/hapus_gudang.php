@@ -1,19 +1,19 @@
 <?php 
 include "../koneksi.php";
 if (isset($_GET['id'])) {
-	$username = $_GET['id'];
-	$query = "SELECT * FROM users where username= '$username'";
+	$kd_barang = $_GET['id'];
+	$query = "SELECT * FROM gudang where kd_barang= '$kd_barang'";
 	$hasil = mysql_query($query);
 	$data  = mysql_fetch_array($hasil);
 } else {
 	die ("Error tidak ada id yang dipilih");
 }
-	if (!empty($username) && $username != "") {
-		$query = "DELETE FROM users where username = '$username'";
+	if (!empty($kd_barang) && $kd_barang != "") {
+		$query = "DELETE FROM gudang where kd_barang = '$kd_barang'";
 		$sql   = mysql_query($query);
 
 		if($sql){
-			header("location:../index.php?page=karyawan");
+			header("location:../index.php?page=gudang");
 		} else {
 			echo "data gagal terhapus";
 		}

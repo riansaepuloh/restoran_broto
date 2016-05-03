@@ -271,7 +271,7 @@ if ($sql3) {
                                  <td width="35px"></td>
                                 <td colspan="5"><label for="contact-name" class="control-label"> DP</label></td>
                                 <td width="35px" align="center"><label for="contact-name" class="control-label"> Rp. </label></td>
-                                <td width="200px"><input type="text" class="form-control" id="contract-name" name="dp"  value="<?php  echo number_format($dp,'0',',','.'); ?>"></td>
+                                <td width="200px"><input type="text" class="form-control" id="contract-name" name="dp"  value="<?php  echo $dp; ?>"></td>
                             </tr>
 
                             <tr>
@@ -290,9 +290,9 @@ if ($sql3) {
                                 <td>:</td>
                                 <td width="50px"><input type="text" class="form-control" id="contract-name" name="banyakangsuran1" placeholder="Angsuran"  value="<?php  echo "$banyakangsuran1"; ?>"></td>
                                 <td width="30px" align="center"> X </td>
-                                <td><input type="text" class="form-control" id="contract-name" name="nominalangsuran1" placeholder="Angsuran"  value="<?php  echo number_format($nominalangsuran1,'0',',','.'); ?>"></td>
+                                <td><input type="text" class="form-control" id="contract-name" name="nominalangsuran1" placeholder="Angsuran"  value="<?php  echo $nominalangsuran1; ?>"></td>
                                 <td width="35px" align="center"><label for="contact-name" class="control-label"> Rp. </label></td>
-                                <td width="200px"><input type="text" class="form-control" id="contract-name" name="saldo1"  value="<?php  echo number_format($saldo1,'0',',','.'); ?>"></td>
+                                <td width="200px"><input type="text" class="form-control" id="contract-name" name="saldo1"  value="<?php  echo $saldo1; ?>"></td>
                             </tr>
                             <tr>
                                 <td height="10px"></td>
@@ -313,9 +313,9 @@ if ($sql3) {
                                 <td>:</td>
                                 <td width="50px"><input type="text" class="form-control" id="contract-name" name="banyakangsuran2" placeholder="Angsuran"  value="<?php  echo "$banyakangsuran2"; ?>"></td>
                                 <td width="30px" align="center"> X </td>
-                                <td><input type="text" class="form-control" id="contract-name" name="nominalangsuran2" placeholder="Angsuran"  value="<?php  echo number_format($nominalangsuran2,'0',',','.'); ?>"></td>
+                                <td><input type="text" class="form-control" id="contract-name" name="nominalangsuran2" placeholder="Angsuran"  value="<?php  echo $nominalangsuran2; ?>"></td>
                                 <td width="35px" align="center"><label for="contact-name" class="control-label"> Rp. </label></td>
-                                <td width="200px"><input type="text" class="form-control" id="contract-name" name="saldo2"  value="<?php  echo number_format($saldo2,'0',',','.'); ?>"></label></td>
+                                <td width="200px"><input type="text" class="form-control" id="contract-name" name="saldo2"  value="<?php  echo $saldo2; ?>"></label></td>
                             </tr>
                             <tr>
                                 <td height="10px"></td>
@@ -327,7 +327,7 @@ if ($sql3) {
                                  <td width="35px"></td>
                                 <td colspan="5"><label for="contact-name" class="control-label"> TOTAL</label></td>
                                 <td width="35px" align="center"><label for="contact-name" class="control-label"> Rp. </label></td>
-                                <td width="200px"><input type="text" class="form-control" id="contract-name" name="total"  value="<?php  echo number_format($total,'0',',','.'); ?>"></td>
+                                <td width="200px"><input type="text" class="form-control" id="contract-name" name="total"  value="<?php  echo $total; ?>"></td>
                             </tr>
                             <tr>
                                 <td height="10px"></td>
@@ -460,7 +460,7 @@ if ($sql3) {
                         <br>
                         <div class="form-action no-margin-bottom" style="margin-left:40%">
                             <input class="btn btn-primary" type="submit" name="edit" id="edit" value="EDIT DATA KONSUMEN">
-                            <a href="index.php?page=detail_kredit&id=<?php echo "$nf"; ?>" class="btn btn-primary">BATAL EDIT</a>
+                            <a href="index.php?page=detail_kredit&id=<?php echo "$nf"; ?>" class="btn btn-primary">KEMBALI</a>
                         </div>
                         <br>
                         </form>
@@ -483,6 +483,7 @@ if ($sql3) {
                         <th width="130px">NILAI ANGSURAN K</th>
                         <th width="120px">SALDO PIUTANG D</th>
                         <th>KETERANGAN</th>
+                        <th>AKSI</th>
                         <tbody>
                         <tr>
                             <td>S.A</td>
@@ -494,9 +495,11 @@ if ($sql3) {
                             <td></td>
                             <td align="right"><?php echo "Rp. ".number_format($total,'2',',','.') ?></td>
                             <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>U.M</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -521,7 +524,9 @@ if ($sql3) {
                                     <td><?php echo "Rp. ".number_format($kolom['nilai_angsuran'],'2',',','.')?></td>
                                     <td><?php echo "Rp. ".number_format($kolom['saldo_piutang'],'2',',','.')?></td>
                                     <td><?php echo $kolom['keterangan']?></td>
-                                    
+                                    <td align="center">
+                                    <a href="pengolahan_kredit/hapus_angsuran.php?page=hapus_angsuran&id=<?php echo $kolom['kd_angsuran'];?>"onclick="return confirm('apakah yakin menghapus data ?')" ><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
+                                </td>
                                 </tr>
                                 <?php 
                                 }
@@ -624,7 +629,6 @@ if ($sql3) {
                         </div>
                         </div>
                         <!-- end modal -->
-                        <center><button a href="#daftar" data-toggle="modal" class="btn btn-success">BAYAR ANGSURAN</button></center>
                     </div>
                 </div>
             </div>

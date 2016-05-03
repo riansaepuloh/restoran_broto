@@ -12,7 +12,7 @@ include "koneksi.php";
                 </div>
                 <div class="card-body">
                     <div>
-                       <form method="post" action="pengolahan_kredit/simpan_kredit.php">
+                       <form method="post" action="pengolahan_kredit_baru/simpan_kredit.php">
                        <style type="text/css">
                        th{
                         text-align: center;
@@ -31,9 +31,14 @@ include "koneksi.php";
                             <?php
                             $query=mysql_query("select max(nf) as nf from faktur");
                             $hasil_id=mysql_fetch_array($query);
-                            $id_baru=$hasil_id['nf'];
-                            $id=$id_baru+1;
-                            
+                            $id_baru=substr($hasil_id['nf'],1,4);
+                            $tambah=$id_baru+1;
+                            if($tambah<10) {
+                              $id="000".$tambah;
+                            } else {
+                              $id="00".$tambah;
+                            }
+
                             $thnskarang = date("Y");
                             ?>
 
